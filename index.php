@@ -19,6 +19,7 @@ $generos = $comando->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     
+    <a href="insert.php">Novo Gênero</a>
     <table>
         <tr>
             <th>ID</th>
