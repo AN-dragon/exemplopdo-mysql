@@ -9,8 +9,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $comando = $bd->prepare('INSERT INTO generos(nome) VALUES(:nome)');
     $comando->execute([':nome' => $_POST['nome']]);
 
-    header('location:/index.php')
+    header('location:/index.php');
 }
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
