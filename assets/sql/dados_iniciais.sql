@@ -1,4 +1,4 @@
-use bilioteca;
+use biblioteca;
 insert into generos(id,nome) value
 (1, 'Alta Fantasia'),
 (2, 'Policial'),
