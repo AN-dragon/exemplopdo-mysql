@@ -5,8 +5,10 @@ use ExemploPDOMySQL\MySQLConnection; //PDO
 
 $bd = new MySQLConnection();
 
-$comando = $bd->prepare('SELECT * FROM livros');
+$comando = $bd->prepare('SELECT livros.id AS id, livros.titulo AS titulo, generos.nome AS genero 
+                         FROM livros LEFT JOIN generos ON livros.id_generos = generos.id');
 $comando->execute();
+
 $generos = $comando->fetchAll(PDO::FETCH_ASSOC);
 
 
@@ -22,6 +24,7 @@ $_title = 'Livros';
         <tr>
             <th>ID</th>
             <th>Título</th>
+            <th>Gênero</th>
             <th>&nbsp;</th> <!-- esse &nbsp é um espaço na tabela -->
         </tr>
 
@@ -30,6 +33,7 @@ $_title = 'Livros';
         <tr>
             <td><?= $l['id'] ?></td>
             <td><?= $l['titulo'] ?></td>
+            <td><?= $l['genero'] ?></td>
             <td>
                 <a class="btn btn-secondary" href="livros_update.php?id=<?= $l['id'] ?>">Editar</a>
                 <a class="btn btn-danger" href="livros_delete.php?id=<?= $l['id'] ?>">Excluir</a>
